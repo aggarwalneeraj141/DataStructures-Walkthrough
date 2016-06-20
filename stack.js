@@ -4,7 +4,6 @@
 */
 function Stack() {
 	this.data=[];
-	this.size=0;
 }
 
 /*
@@ -13,8 +12,7 @@ function Stack() {
 * @param data_item: the element to be added to the top of the stack.
 */
 Stack.prototype.push = function(data_item) {
-	this.data[this.size] = data_item;
-	this.size++;
+	this.data.push(data_item);
 };
 
 /*
@@ -25,11 +23,10 @@ Stack.prototype.push = function(data_item) {
 */
 Stack.prototype.pop = function() {
 	var poppedData = null;
-	if (this.size != 0)
+	if (this.data.length != 0)
 	{
-		this.size--;
-		poppedData = this.data[this.size];
-		delete this.data[this.size];
+		poppedData = this.data[this.data.length-1];
+		this.data.splice(this.data.length-1, 1);
 	}
 	return poppedData;
 };
@@ -42,9 +39,9 @@ Stack.prototype.pop = function() {
 */
 Stack.prototype.peek = function() {
 	var peekData = null;
-	if (this.size !=0)
+	if (this.data.length !=0)
 	{
-		peekData = this.data[this.size-1];
+		peekData = this.data[this.data.length-1];
 	}
 	return peekData;
 };
@@ -55,7 +52,7 @@ Stack.prototype.peek = function() {
 * @return: the number of elements in the stack.
 */
 Stack.prototype.getSize = function() {
-	return this.size;
+	return this.data.length;
 };
 
 /*
@@ -64,13 +61,12 @@ Stack.prototype.getSize = function() {
 * @return: true if the stack is empty, otherwise false.
 */
 Stack.prototype.isEmpty = function() {
-	return (this.size == 0);
+	return (this.data.length == 0);
 };
 
 /*
 * Will reset the stack by removing all elements and setting size to 0.
 */
 Stack.prototype.clear = function() {
-	this.data = {};
-	this.size = 0;
+	this.data = [];
 };
