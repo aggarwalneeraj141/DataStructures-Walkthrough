@@ -3,7 +3,7 @@
 * @constructor
 */
 function Stack() {
-	this.data={};
+	this.data=[];
 	this.size=0;
 }
 
