@@ -65,7 +65,7 @@ Stack.prototype.isEmpty = function() {
 };
 
 /*
-* Will reset the stack by removing all elements and setting size to 0.
+* Will reset the stack by removing all elements.
 */
 Stack.prototype.clear = function() {
 	this.data = [];
