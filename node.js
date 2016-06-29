@@ -2,6 +2,7 @@
 * Implementation of a node in Javascript. Carries
 * a data element, and points to another node. 
 *
+* @constructor
 * @param data: the data element to be stored.
 */
 function Node(data) {
@@ -41,12 +42,18 @@ Node.prototype.hasNext(){
 }
 
 /*
-* Will return the node being pointed to.
+* Will return the node being pointed to if its not empty.
 *
-* @return the node that this node points to.
+* @return the node that this node points to if not empty,
+* otherwise null.
 */
 Node.prototype.getNext(){
-	return this.next;
+	var n = null;
+	if (this.hasNext())
+	{
+		n = this.next;
+	}
+	return n;
 }
 
 /*
