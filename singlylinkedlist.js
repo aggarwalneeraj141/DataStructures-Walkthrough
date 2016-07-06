@@ -10,7 +10,9 @@ function SinglyLinkedList() {
 }
 
 /**
-* Will add a value to the end of the linked list.
+* Will add a value to the end of the linked list by
+* creating a node with the given value, and linking it
+* from the last node in the list.
 *
 * @param data_element: the data to add to the list.
 */
@@ -33,7 +35,12 @@ SinglyLinkedList.prototype.add(data_element) {
 /*
 * Will get the node at the respective index in the list.
 * If position does not exist, will return null.
-* FINISH COMMENTING
+* Simply iterates through the nodes in the list the given
+* number of times and will return the node at that position.
+*
+* @param index: the index of the node to retrieve in the list
+* @return: the node at the given position in the list, or null
+* if it doesn't exist.
 */
 SinglyLinkedList.prototype.getNode(index) {
 	var node = this.head;
@@ -48,6 +55,16 @@ SinglyLinkedList.prototype.getNode(index) {
 	return node;
 }
 
+/*
+* Retrieves the value at the respective index in the list.
+* Simply calls getNode to retrieve the node at that position,
+* and returns the data value of the node. If position doesn't
+* exist, then it will return null.
+*
+* @param index: the index of the value to retrieve in the list.
+* @return: the respective value in the list, or null if the position
+* doesn't exist.
+*/
 SinglyLinkedList.prototype.get(index) {
 	var node = getNode(index);
 	if (node == null)
@@ -59,7 +76,12 @@ SinglyLinkedList.prototype.get(index) {
 }
 
 /*
-* Reset the value of the respective node.
+* Changes the value in a specific position in the list and
+* returns the old value.
+*
+* @param index: the index of the value to change in the list.
+* @param value: the new value to replace the old value
+* @return: the old value in the position.
 */
 SinglyLinkedList.prototype.set(index, value) {
 	var oldValue = get(index);
@@ -67,6 +89,42 @@ SinglyLinkedList.prototype.set(index, value) {
 	return oldValue;
 }
 
+/*
+* Will remove a value from the list at the respective position.
+* First, it will check if the value being removed is the first. 
+* If it is, then the head will be set to the next value being pointed
+* to from the head.
+* If it is not, it will check if it the last value in the list. If it
+* is, then it will set the second to last node's next value to null.
+* If not, then the previous node's next value will be set to the node
+* after the one being removed.
+*
+* @param index: the index of the value being removed
+* @return: the old value at that index
+*/
+SinglyLinkedList.prototype.remove(index) {
+	var oldValue = get(index);
+	if (index == 0) //first node
+	{
+		this.head = this.head.getNext();
+	}
+	else if (index == this.size -1) //last node
+	{
+		getNode(index-1).setNext(null);
+	}
+	else 
+	{
+		getNode(index-1).setNext(index+1);
+	}
+	this.size--;
+	return oldValue;
+}
+
+/*
+* Will return the size of the linked list.
+*
+* @return: the size of the linked list.
+*/
 SinglyLinkedList.prototype.size() {
 	return this.size;
 }
