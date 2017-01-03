@@ -1,23 +1,23 @@
 /*
 * Implementation of a double node in Javascript. Carries
-* a data element, and points to two other nodes. 
+* a value element, and points to two other nodes.
 *
 * @constructor
-* @param data: the data element to be stored.
+* @param value: the value element to be stored.
 */
-function Node(data) {
-	this.data = data;
+function Node(value) {
+	this.value = value;
 	this.next = null;
 	this.previous = null;
 }
 
 /*
-* Will return the data of the node.
+* Will return the value of the node.
 *
-* @return the data the node carries.
+* @return the value the node carries.
 */
-Node.prototype.getData(){
-	return this.data;
+Node.prototype.getValue(){
+	return this.value;
 }
 
 /*
@@ -27,10 +27,10 @@ Node.prototype.getData(){
 * @param newData: the new data to be carried by the node.
 * @return the old data of the node.
 */
-Node.prototype.setData(newData){
-	var oldData = this.data;
-	this.data = newData;
-	return oldData;
+Node.prototype.setValue(newValue){
+	var oldValue = this.value;
+	this.value = newValue;
+	return oldValue;
 }
 
 /*
@@ -94,7 +94,7 @@ Node.prototype.setNext(newNext){
 }
 
 /*
-* Will update the previous node being pointed to and return 
+* Will update the previous node being pointed to and return
 * the old one.
 *
 * @param node: the new previous node to point to.

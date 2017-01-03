@@ -1,12 +1,12 @@
 /*
 * Implementation of a node in Javascript. Carries
-* a data element, and points to another node. 
+* a value element, and points to another node.
 *
 * @constructor
-* @param data: the data element to be stored.
+* @param value: the value element to be stored.
 */
-function Node(data) {
-	this.data = data;
+function Node(value) {
+	this.value = value;
 	this.next = null;
 }
 
@@ -15,8 +15,8 @@ function Node(data) {
 *
 * @return the data the node carries.
 */
-Node.prototype.getData(){
-	return this.data;
+Node.prototype.getValue(){
+	return this.value;
 }
 
 /*
@@ -26,10 +26,10 @@ Node.prototype.getData(){
 * @param newData: the new data to be carried by the node.
 * @return the old data of the node.
 */
-Node.prototype.setData(newData){
-	var oldData = this.data;
-	this.data = newData;
-	return oldData;
+Node.prototype.setData(newValue){
+	var oldValue = this.value;
+	this.value = newValue;
+	return oldValue;
 }
 
 /*
