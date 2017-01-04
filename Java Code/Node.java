@@ -31,6 +31,16 @@ public class Node {
     }
 
     /**
+     * Returns if the Node points to another node.
+     *
+     * @return: true if next points to a node, and false if
+     * next is null.
+     */
+    public boolean hasNext() {
+        return (next != null);
+    }
+
+    /**
      * Returns the pointer of the next Node.
      *
      * @return the node being pointed to by self in front.
