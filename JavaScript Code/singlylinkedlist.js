@@ -1,7 +1,7 @@
 /*
 * Implementation of a Singly Linked List in Javascript.
 * Has a head node, as well as a size variable.
-* 
+*
 * @constructor
 */
 function SinglyLinkedList() {
@@ -91,7 +91,7 @@ SinglyLinkedList.prototype.set(index, value) {
 
 /*
 * Will remove a value from the list at the respective position.
-* First, it will check if the value being removed is the first. 
+* First, it will check if the value being removed is the first.
 * If it is, then the head will be set to the next value being pointed
 * to from the head.
 * If it is not, it will check if it the last value in the list. If it
@@ -112,9 +112,9 @@ SinglyLinkedList.prototype.remove(index) {
 	{
 		getNode(index-1).setNext(null);
 	}
-	else 
+	else
 	{
-		getNode(index-1).setNext(index+1);
+		getNode(index-1).setNext(getNode(index+1));
 	}
 	this.size--;
 	return oldValue;
@@ -128,4 +128,3 @@ SinglyLinkedList.prototype.remove(index) {
 SinglyLinkedList.prototype.size() {
 	return this.size;
 }
-
