@@ -1,5 +1,3 @@
-package com.aggarwalneeraj;
-
 /**
  * Implementation of a double node in Java. Carries
  * a value, and points to two other nodes.
