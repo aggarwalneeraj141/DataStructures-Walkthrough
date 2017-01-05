@@ -1,4 +1,22 @@
-# Javascript Data Structures
-An implementation of data structures covered in the tutorial.
+# Data Structures Walkthrough
 
-Currently includes stacks and queues.
+A full implementation of data structures in both Java and Javascript, along with tutorials.
+
+## Current Data Structures
+
+### Java
+
+* Node
+* DoubleNode
+* Singly Linked List
+* Doubly Linked List (in progress)
+
+### Javascript
+
+* Node
+* DoubleNode
+* Singly Linked List
+* Doubly Linked List (incomplete)
+* Binary Search Tree (in progress)
+* Stack
+* Queue
