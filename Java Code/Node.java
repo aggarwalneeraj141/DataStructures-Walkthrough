@@ -12,9 +12,9 @@ public class Node {
      * Constructor for Node. Takes in a value to be stored,
      * and sets previous and next pointers to null.
      *
-     * @param val: the value to be assigned.
+     * @param value: the value to be assigned.
      */
-    public Node(Object val) {
+    public Node(Object value) {
         this.value = val;
         next = null;
     }

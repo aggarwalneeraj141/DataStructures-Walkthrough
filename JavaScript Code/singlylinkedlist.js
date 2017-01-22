@@ -9,7 +9,7 @@ function SinglyLinkedList() {
 	this.size = 0;
 }
 
-/**
+/*
 * Will add a value to the end of the linked list by
 * creating a node with the given value, and linking it
 * from the last node in the list.

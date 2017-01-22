@@ -117,7 +117,7 @@ public class DoublyLinkedList<E> {
      *
      * @postcondition: the value will be added to the linked list, and the size will increase
      * by one.
-     * @param val: the value to be added to the end of the list.
+     * @param value: the value to be added to the end of the list.
      */
     public void add(E value) {
         DoubleNode newNode = new DoubleNode(value);
@@ -142,7 +142,7 @@ public class DoublyLinkedList<E> {
      * @postcondition: all nodes after the index will be shifted to the right and the size
      * of the list will increase by one
      * @param index: the index at which to insert the value
-     * @param val: the value to be inserted into the list
+     * @param value: the value to be inserted into the list
      */
     public void add(int index, E value) {
         DoubleNode newNode = new DoubleNode(value);
@@ -166,11 +166,11 @@ public class DoublyLinkedList<E> {
     }
 
     /**
-     * Inserts an E at the front of the list.
+     * Inserts a new value at the front of the list.
      *
      * @postcondition: the private variable head will now point to a node consisting
      * of the passed value, and the size will increase by one.
-     * @param val: the value to be inserted at the front of the list
+     * @param value: the value to be inserted at the front of the list
      */
     public void addFirst(E value) {
         DoubleNode newNode = new DoubleNode(value);
@@ -194,7 +194,7 @@ public class DoublyLinkedList<E> {
      *
      * @postcondition: the private variable end will now point to a node consisting
      * of the passed value, and the size will increase by one.
-     * @param val: the value to be added to the end of the list.
+     * @param value: the value to be added to the end of the list.
      */
     public addLast(E value) {
         add(value);
@@ -207,7 +207,7 @@ public class DoublyLinkedList<E> {
      * @postcondition: node at index will be removed from the list and the pointers
      * will be reset to link the list, and the size will be reduced by one.
      * @param index: the index of the element to remove.
-     * @return the previous value at the index.
+     * @return: the previous value at the index.
      */
     public E remove(int index) {
         E oldValue = get(index);

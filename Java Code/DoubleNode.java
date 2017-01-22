@@ -13,9 +13,9 @@ public class DoubleNode {
      * Constructor for DoubleNode. Takes in a value to be stored,
      * and sets previous and next pointers to null.
      *
-     * @param val: the value to be assigned.
+     * @param value: the value to be assigned.
      */
-    public DoubleNode(Object val) {
+    public DoubleNode(Object value) {
         this.value = val;
         previous = null;
         next = null;
