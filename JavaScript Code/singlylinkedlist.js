@@ -14,10 +14,10 @@ function SinglyLinkedList() {
 * creating a node with the given value, and linking it
 * from the last node in the list.
 *
-* @param data_element: the data to add to the list.
+* @param value: the value to add to the list.
 */
-SinglyLinkedList.prototype.add(data_element) {
-	var node = new Node(data_element);
+SinglyLinkedList.prototype.add(value) {
+	var node = new Node(value);
 	if (this.head == null)
 	{
 		head = node;
@@ -58,7 +58,7 @@ SinglyLinkedList.prototype.getNode(index) {
 /*
 * Retrieves the value at the respective index in the list.
 * Simply calls getNode to retrieve the node at that position,
-* and returns the data value of the node. If position doesn't
+* and returns the value of the node. If position doesn't
 * exist, then it will return null.
 *
 * @param index: the index of the value to retrieve in the list.
@@ -71,7 +71,7 @@ SinglyLinkedList.prototype.get(index) {
 	{
 		return null;
 	} else {
-		return node.getData();
+		return node.getValue();
 	}
 }
 
@@ -85,7 +85,7 @@ SinglyLinkedList.prototype.get(index) {
 */
 SinglyLinkedList.prototype.set(index, value) {
 	var oldValue = get(index);
-	getNode(index).setData(value);
+	getNode(index).setValue(value);
 	return oldValue;
 }
 

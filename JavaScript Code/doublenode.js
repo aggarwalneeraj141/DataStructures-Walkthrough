@@ -21,11 +21,11 @@ Node.prototype.getValue(){
 }
 
 /*
-* Will change the data of the node and return the
-* old data.
+* Will change the value of the node and return the
+* old value.
 *
-* @param newData: the new data to be carried by the node.
-* @return the old data of the node.
+* @param newValue: the new value to be carried by the node.
+* @return the old value of the node.
 */
 Node.prototype.setValue(newValue){
 	var oldValue = this.value;

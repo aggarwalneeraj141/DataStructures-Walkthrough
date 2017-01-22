@@ -35,7 +35,6 @@ public class SinglyLinkedList {
      * @param value: the data to add to the list.
      */
     public void add(Node value) {
-
         if (this.head == null) {
             this.head = value;
         } else {

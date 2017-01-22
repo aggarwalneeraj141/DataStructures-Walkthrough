@@ -11,22 +11,22 @@ function Node(value) {
 }
 
 /*
-* Will return the data of the node.
+* Will return the value of the node.
 *
-* @return the data the node carries.
+* @return the value the node carries.
 */
 Node.prototype.getValue(){
 	return this.value;
 }
 
 /*
-* Will change the data of the node and return the
-* old data.
+* Will change the value of the node and return the
+* old value.
 *
-* @param newData: the new data to be carried by the node.
-* @return the old data of the node.
+* @param newValue: the new value to be carried by the node.
+* @return the old value of the node.
 */
-Node.prototype.setData(newValue){
+Node.prototype.setValue(newValue){
 	var oldValue = this.value;
 	this.value = newValue;
 	return oldValue;

@@ -26,7 +26,7 @@ public class DoubleNode {
      *
      * @return the value of the node.
      */
-    public Object getValue(){
+    public Object getValue() {
         return this.value;
     }
 
@@ -35,7 +35,7 @@ public class DoubleNode {
      *
      * @return the node being pointed to by self in front.
      */
-    public DoubleNode getNext(){
+    public DoubleNode getNext() {
         return this.next;
     }
 
@@ -44,7 +44,7 @@ public class DoubleNode {
      *
      * @return the node being pointed to by self behind.
      */
-    public DoubleNode getPrevious(){
+    public DoubleNode getPrevious() {
         return this.previous;
     }
 

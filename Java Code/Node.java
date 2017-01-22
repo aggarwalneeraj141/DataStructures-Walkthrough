@@ -24,7 +24,7 @@ public class Node {
      *
      * @return the value of the node.
      */
-    public Object getValue(){
+    public Object getValue() {
         return this.value;
     }
 
@@ -43,7 +43,7 @@ public class Node {
      *
      * @return the node being pointed to by self in front.
      */
-    public Node getNext(){
+    public Node getNext() {
         return this.next;
     }
 
