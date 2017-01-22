@@ -1,8 +1,10 @@
+import java.util.Iterator;
+
 /**
  * Implementation of a Doubly Linked List in Java.
  * Has a head node, end node, as well as a size variable.
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList<E> {
 
     private DoubleNode head;
     private DoubleNode end;
@@ -26,7 +28,9 @@ public class DoublyLinkedList {
      */
     private DoubleNode getNodeFromFirst(int index) {
         DoubleNode current = this.head;
-        for (int i = 0; i < index; i++) {current = current.getNext();}
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
         return current;
     }
 
@@ -38,30 +42,60 @@ public class DoublyLinkedList {
      */
     private DoubleNode getNodeFromLast(int index) {
         DoubleNode current = this.end;
-        for (int i = this.size-1; i > index; i--) {current = current.getPrevious();}
+        for (int i = this.size-1; i > index; i--) {
+            current = current.getPrevious();
+        }
         return current;
     }
 
     /**
-     * get node at index in linkedlist. based on location, it will
-     * iterate from front or back.
+     * Get node at index in the list. based on the placement, it will
+     * iterate from the front or the back of the list to retrieve the value.
+     *
      * @param index: the index of the node to get.
      * @return: the node at the specific index.
      */
     //private because only deal with actual values
     private DoubleNode getNode(int index) {
-        if (index > this.size/2) {return getNodeFromLast(index);}
+        if (index > this.size/2) {
+            return getNodeFromLast(index);
+        }
         return getNodeFromFirst(index);
     }
 
 
     /**
-     * gets the value of the node at the index.
+     * Retrieves the value of the node at the index.
+     *
      * @param index: the index of which to retrieve the value.
      * @return: the value of the node.
      */
-    public Object get(int index) {
+    public E get(int index) {
         return getNode(index).getValue();
+    }
+
+    /**
+     * Will retrieve the first value in the list.
+     *
+     * @return: the first value in the list, or null if the list is empty.
+     */
+    public E getFirst() {
+        if (this.head != null) {
+            return this.head.getValue();
+        }
+        return null;
+    }
+
+    /**
+     * Will retrieve the last value in the list.
+     *
+     * @return: the last value in the list, or null if the list is empty.
+     */
+    public E getLast() {
+        if (this.end != null) {
+            return end.getValue();
+        }
+        return null;
     }
 
     /**
@@ -72,42 +106,241 @@ public class DoublyLinkedList {
      * @param newValue: the new value to be set.
      * @return: the old value.
      */
-    public Object set(int index, Object newValue) {
-        Object oldValue = get(index);
+    public E set(int index, E newValue) {
+        E oldValue = get(index);
         getNode(index).setValue(newValue);
         return oldValue;
     }
 
-    //adds value to the end
-
     /**
      * adds the value to the end of the linked list.
      *
+     * @postcondition: the value will be added to the linked list, and the size will increase
+     * by one.
      * @param val: the value to be added to the end of the list.
      */
-    public void add(Object val) {
-        DoubleNode node = new DoubleNode(val);
-        if (this.size == 0) {this.head = node;}
-        else if (this.size == 1) {
-            this.end = node;
+    public void add(E val) {
+        DoubleNode newNode = new DoubleNode(val);
+        if (this.size == 0) {
+            this.head = newNode;
+        } else if (this.size == 1) {
+            this.end = newNode;
             head.setNext(this.end);
             end.setPrevious(this.head);
         } else {
-            end.setNext(node);
-            node.setPrevious(end);
-            this.end = node;
+            end.setNext(newNode);
+            newNode.setPrevious(end);
+            this.end = newNode;
         }
         this.size++;
     }
 
-    //still to implement - remove, add (at index), addFirst, addLast,
+    /**
+     * Add the value at the selected index and shift all following nodes to the right.
+     *
+     * @precondition: 0 <= index < size
+     * @postcondition: all nodes after the index will be shifted to the right and the size
+     * of the list will increase by one
+     * @param index: the index at which to insert the value
+     * @param val: the value to be inserted into the list
+     */
+    public void add(int index, E val) {
+        DoubleNode newNode = new DoubleNode(val);
+        DoubleNode oldNode = getNode(index);
+        if (index == 0) {
+            if (this.head != null) {
+                head.setPrevious(newNode);
+            }
+            newNode.setNext(head);
+            this.head = newNode;
+        } else {
+            newNode.setPrevious(oldNode.getPrevious());
+            newNode.getPrevious().setNext(newNode);
+            oldNode.setPrevious(newNode);
+            newNode.setNext(oldNode);
+        }
+        if (size == 1) {
+            end = head.getNext();
+        }
+        this.size++;
+    }
 
     /**
-     * return the size of the list.
+     * Inserts an E at the front of the list.
+     *
+     * @postcondition: the private variable head will now point to a node consisting
+     * of the passed value, and the size will increase by one.
+     * @param val: the value to be inserted at the front of the list
+     */
+    public void addFirst(E val) {
+        DoubleNode newNode = new DoubleNode(val);
+        if (size == 0) {
+            this.head = newNode;
+        } else if (size == 1) {
+            this.end = this.head;
+            this.head = newNode;
+            head.setNext(this.end);
+            end.setPrevious(this.head);
+        } else {
+            newNode.setNext(this.head);
+            head.setPrevious(newNode);
+            this.head = newNode;
+        }
+        this.size++;
+    }
+
+    /**
+     * Will add a value to the end of the linked list
+     *
+     * @postcondition: the private variable end will now point to a node consisting
+     * of the passed value, and the size will increase by one.
+     * @param val: the value to be added to the end of the list.
+     */
+    public addLast(E val) {
+        add(val);
+    }
+
+    /**
+     * Removes value at the given index of the list and returns it.
+     *
+     * @precondition: 0 <= index < size
+     * @postcondition: node at index will be removed from the list and the pointers
+     * will be reset to link the list, and the size will be reduced by one.
+     * @param index: the index of the element to remove.
+     * @return the previous value at the index.
+     */
+    public E remove(int index) {
+        E oldValue = get(index);
+        DoubleNode oldNode = getNode(index);
+        if (index == 0) {
+            DoubleNode node = head.getNext();
+            if (node != null) {
+                node.setPrevious(null);
+                head.setNext(null);
+            }
+            this.head = node;
+        } else if (index == size-1) {
+            DoubleNode node = end.getPrevious();
+            node.setNext(null);
+            end.setPrevious(null);
+            this.end = node;
+        } else {
+            DoubleNode previousNode = oldNode.getPrevious();
+            DoubleNode nextNode = oldNode.getNext();
+            previousNode.setNext(nextNode);
+            nextNode.setPrevious(previousNode);
+        }
+        this.size--;
+        return oldValue;
+    }
+
+    /**
+     * Remove the first element the list.
+     *
+     * @postcondition: the first value of the list will be removed and all the following
+     * values will be shifted left, and the size of the list will decrese by one.
+     * @return: the old first element in the list.
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * Remove the last element the list.
+     *
+     * @postcondition: the last value of the list will be removed and the size of the list
+     * will decrease by one
+     * @return: the old last element in the list.
+     */
+    public E removeLast() {
+        return remove(this.size-1);
+    }
+
+
+    /**
+     * Return the size of the list.
+     *
      * @return: the size of the list.
      */
     public int size() {
         return this.size;
+    }
+
+    /**
+     * Returns a new DoublyLinkedListIterator for the current list.
+     *
+     * @return: An instance of a DoublyLinkedListIterator to traverse the list
+     */
+    public Iterator<E> iterator)() {
+        return new DoublyLinkedListIterator();
+    }
+
+    /**
+     * A private class to iterate through the linked list and access the values stored
+     * in the list. Only able to traverse forwards (not backwards).
+     */
+    private class DoublyLinkedListIterator implements Iterator<E> {
+
+        private DoubleNode nextNode;
+        private final int currentSize;
+
+        /**
+         * Will create an instance of the iterator for the linked list. Sets nextNode to
+         * the first node in the list, and size to the current size in order to be able to 
+         * check if the list has been modified or not.
+         */
+        public DoublyLinkedListIterator() {
+            this.nextNode = head;
+            this.currentSize = size;
+        }
+
+        /**
+         * Will return whether or not the iterator has a next element to point to (there are more
+         * values to traverse in the list).
+         *
+         * @return: true if there are more values, and false if there are no more.
+         */
+        public boolean hasNext() {
+            return (this.nextNode != null);
+        }
+
+        /**
+         * Will return the next value to point to in the list. Will check if the list has been modified
+         * by checking if the size of the list has changed. First confirms that there is another value
+         * in the list by only continuing if hasNext() is true.
+         *
+         * @throws: runtime exepction if the list has been modified.
+         * @return: the next value of the list or null if the end of the list has been reached.
+         */
+        public E next() {
+            if (hasNext()) {
+                if (this.currentSize==size) {
+                    E value = (E) nextNode.getValue();
+                    this.nextNode = nextNode.getNext();
+                    return value;
+                } else {
+                    throw new RuntimeException("List has been modified. This iterator is no longer valid");
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Will remove the current element pointed to by the iterator, and updates the pointers.
+         *
+         * @postcondition: the element will be removed from the list and the size will decrease by one.
+         */
+        public void remove() {
+            if (this.nextNode != null && nextNode.getPrevious() != null) {
+                DoubleNode previous = nextNode.getPrevious().getPrevious();
+                nextNode.setPrevious(previous);
+                if (previous != null) {
+                    previous.setNext(nextNode);
+                }
+                size--;
+            }
+        }
+
     }
 
 }
