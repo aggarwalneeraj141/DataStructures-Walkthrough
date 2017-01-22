@@ -1,3 +1,6 @@
+![java badge](https://img.shields.io/badge/java-untested-orange.svg)
+![javascript badge](https://img.shields.io/badge/javascript-untested-orange.svg)
+
 # Data Structures Walkthrough
 
 A full implementation of data structures in both Java and Javascript, along with tutorials.
