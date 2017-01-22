@@ -9,7 +9,7 @@ function Stack() {
 /*
 * Add an element to the top of the stack.
 *
-* @param data_item: the element to be added to the top of the stack.
+* @param {Object} data_item: the element to be added to the top of the stack.
 */
 Stack.prototype.push = function(data_item) {
 	this.data.push(data_item);

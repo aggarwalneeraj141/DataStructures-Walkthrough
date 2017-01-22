@@ -119,8 +119,8 @@ public class DoublyLinkedList<E> {
      * by one.
      * @param val: the value to be added to the end of the list.
      */
-    public void add(E val) {
-        DoubleNode newNode = new DoubleNode(val);
+    public void add(E value) {
+        DoubleNode newNode = new DoubleNode(value);
         if (this.size == 0) {
             this.head = newNode;
         } else if (this.size == 1) {
@@ -144,8 +144,8 @@ public class DoublyLinkedList<E> {
      * @param index: the index at which to insert the value
      * @param val: the value to be inserted into the list
      */
-    public void add(int index, E val) {
-        DoubleNode newNode = new DoubleNode(val);
+    public void add(int index, E value) {
+        DoubleNode newNode = new DoubleNode(value);
         DoubleNode oldNode = getNode(index);
         if (index == 0) {
             if (this.head != null) {
@@ -172,8 +172,8 @@ public class DoublyLinkedList<E> {
      * of the passed value, and the size will increase by one.
      * @param val: the value to be inserted at the front of the list
      */
-    public void addFirst(E val) {
-        DoubleNode newNode = new DoubleNode(val);
+    public void addFirst(E value) {
+        DoubleNode newNode = new DoubleNode(value);
         if (size == 0) {
             this.head = newNode;
         } else if (size == 1) {
@@ -196,8 +196,8 @@ public class DoublyLinkedList<E> {
      * of the passed value, and the size will increase by one.
      * @param val: the value to be added to the end of the list.
      */
-    public addLast(E val) {
-        add(val);
+    public addLast(E value) {
+        add(value);
     }
 
     /**

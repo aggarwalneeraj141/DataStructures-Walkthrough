@@ -3,7 +3,7 @@
 * a value element, and points to another node.
 *
 * @constructor
-* @param value: the value element to be stored.
+* @param {Object} value: the value element to be stored.
 */
 function Node(value) {
 	this.value = value;
@@ -23,7 +23,7 @@ Node.prototype.getValue(){
 * Will change the value of the node and return the
 * old value.
 *
-* @param newValue: the new value to be carried by the node.
+* @param {Object} newValue: the new value to be carried by the node.
 * @return the old value of the node.
 */
 Node.prototype.setValue(newValue){
@@ -59,7 +59,7 @@ Node.prototype.getNext(){
 /*
 * Will update the node being pointed to and return the old one.
 *
-* @param node: the new node to point to.
+* @param {Node} node: the new node to point to.
 * @return the old node.
 */
 Node.prototype.setNext(newNext){

@@ -9,7 +9,7 @@ function Queue() {
 /*
 * Add an element to the end of the queue.
 *
-* @param data_item: the element to be added to the end of the queue.
+* @param {Object} data_item: the element to be added to the end of the queue.
 */
 Queue.prototype.enqueue = function(data_item) {
 	this.data.push(data_item);

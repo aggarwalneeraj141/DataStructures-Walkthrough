@@ -3,7 +3,7 @@
 * a value element, and points to two other nodes.
 *
 * @constructor
-* @param value: the value element to be stored.
+* @param {Object} value: the value element to be stored.
 */
 function Node(value) {
 	this.value = value;
@@ -14,7 +14,7 @@ function Node(value) {
 /*
 * Will return the value of the node.
 *
-* @return the value the node carries.
+* @return: the value the node carries.
 */
 Node.prototype.getValue(){
 	return this.value;
@@ -24,8 +24,8 @@ Node.prototype.getValue(){
 * Will change the value of the node and return the
 * old value.
 *
-* @param newValue: the new value to be carried by the node.
-* @return the old value of the node.
+* @param {Object} newValue: the new value to be carried by the node.
+* @return: the old value of the node.
 */
 Node.prototype.setValue(newValue){
 	var oldValue = this.value;
@@ -36,7 +36,7 @@ Node.prototype.setValue(newValue){
 /*
 * Will return if the node points to a next node.
 *
-* @return true if it points to a next node.
+* @return: true if it points to a next node.
 */
 Node.prototype.hasNext(){
 	return (!this.next==null);
@@ -45,7 +45,7 @@ Node.prototype.hasNext(){
 /*
 * Will return if the node points to a previous node.
 *
-* @return true if it points to a previous node.
+* @return: true if it points to a previous node.
 */
 Node.prototype.hasPrevious(){
 	return (!this.previous==null);
@@ -54,7 +54,7 @@ Node.prototype.hasPrevious(){
 /*
 * Will return the node being pointed to if its not empty.
 *
-* @return the node that this node points to if not empty,
+* @return: the node that this node points to if not empty,
 * otherwise null.
 */
 Node.prototype.getNext(){
@@ -69,7 +69,7 @@ Node.prototype.getNext(){
 /*
 * Will return the previous node being pointed to if its not empty.
 *
-* @return the previous node that this node points to if not empty,
+* @return: the previous node that this node points to if not empty,
 * otherwise null.
 */
 Node.prototype.getNext(){
@@ -84,8 +84,8 @@ Node.prototype.getNext(){
 /*
 * Will update the node being pointed to and return the old one.
 *
-* @param node: the new node to point to.
-* @return the old node.
+* @param {Node} node: the new node to point to.
+* @return: the old node.
 */
 Node.prototype.setNext(newNext){
 	var oldNext = this.next;
@@ -97,8 +97,8 @@ Node.prototype.setNext(newNext){
 * Will update the previous node being pointed to and return
 * the old one.
 *
-* @param node: the new previous node to point to.
-* @return the old node set as previous.
+* @param {Node} node: the new previous node to point to.
+* @return: the old node set as previous.
 */
 Node.prototype.setNext(newPrevious){
 	var oldPrevious = this.previous;

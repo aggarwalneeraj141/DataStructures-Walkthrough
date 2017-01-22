@@ -14,7 +14,7 @@ function SinglyLinkedList() {
 * creating a node with the given value, and linking it
 * from the last node in the list.
 *
-* @param value: the value to add to the list.
+* @param {Object} value: the value to add to the list
 */
 SinglyLinkedList.prototype.add(value) {
 	var node = new Node(value);
@@ -38,9 +38,9 @@ SinglyLinkedList.prototype.add(value) {
 * Simply iterates through the nodes in the list the given
 * number of times and will return the node at that position.
 *
-* @param index: the index of the node to retrieve in the list
+* @param {integer} index: the index of the node to retrieve in the list
 * @return: the node at the given position in the list, or null
-* if it doesn't exist.
+* if it doesn't exist
 */
 SinglyLinkedList.prototype.getNode(index) {
 	var node = this.head;
@@ -61,7 +61,7 @@ SinglyLinkedList.prototype.getNode(index) {
 * and returns the value of the node. If position doesn't
 * exist, then it will return null.
 *
-* @param index: the index of the value to retrieve in the list.
+* @param {integer} index: the index of the value to retrieve in the list.
 * @return: the respective value in the list, or null if the position
 * doesn't exist.
 */
@@ -79,8 +79,8 @@ SinglyLinkedList.prototype.get(index) {
 * Changes the value in a specific position in the list and
 * returns the old value.
 *
-* @param index: the index of the value to change in the list.
-* @param value: the new value to replace the old value
+* @param {integer} index: the index of the value to change in the list.
+* @param {Object} value: the new value to replace the old value
 * @return: the old value in the position.
 */
 SinglyLinkedList.prototype.set(index, value) {
@@ -99,7 +99,7 @@ SinglyLinkedList.prototype.set(index, value) {
 * If not, then the previous node's next value will be set to the node
 * after the one being removed.
 *
-* @param index: the index of the value being removed
+* @param {integer} index: the index of the value being removed
 * @return: the old value at that index
 */
 SinglyLinkedList.prototype.remove(index) {
