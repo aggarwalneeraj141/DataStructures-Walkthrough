@@ -6,17 +6,17 @@ A full implementation of data structures in both Java and Javascript, along with
 
 ### Java
 
-* Node
-* DoubleNode
-* Singly Linked List
-* Doubly Linked List (in progress)
+- [x] Node
+- [x] DoubleNode
+- [x] Singly Linked List
+- [ ] Doubly Linked List (in progress)
 
 ### Javascript
 
-* Node
-* DoubleNode
-* Singly Linked List
-* Doubly Linked List (incomplete)
-* Binary Search Tree (in progress)
-* Stack
-* Queue
+- [x] Node
+- [x] DoubleNode
+- [x] Singly Linked List
+- [ ] Doubly Linked List (incomplete)
+- [ ] Binary Search Tree (in progress)
+- [x] Stack
+- [x] Queue
