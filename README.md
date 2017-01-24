@@ -1,4 +1,3 @@
-![build](https://img.shields.io/snap-ci/ThoughtWorksStudios/eb_deployer/master.svg)
 ![java badge](https://img.shields.io/badge/java-untested-orange.svg)
 ![javascript badge](https://img.shields.io/badge/javascript-untested-orange.svg)
 
