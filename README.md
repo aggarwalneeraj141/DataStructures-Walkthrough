@@ -13,8 +13,9 @@ A full implementation of data structures in both Java and Javascript, along with
 - [x] Node
 - [x] DoubleNode
 - [x] Singly Linked List
-- [ ] Doubly Linked List (in progress)
+- [x] Doubly Linked List
 - [ ] Binary Search Tree
+- [ ] Map
 - [ ] Stack
 - [ ] Queue
 
@@ -23,8 +24,9 @@ A full implementation of data structures in both Java and Javascript, along with
 - [x] Node
 - [x] DoubleNode
 - [x] Singly Linked List
-- [x] Doubly Linked List
+- [ ] Doubly Linked List
 - [ ] Binary Search Tree (in progress)
+- [ ] Map
 - [x] Stack
 - [x] Queue
 
