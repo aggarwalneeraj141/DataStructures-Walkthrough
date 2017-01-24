@@ -10,6 +10,20 @@ public class DoublyLinkedList<E> {
     private DoubleNode end;
     private int size;
 
+    public String toString()
+    {
+        DoubleNode node = head;
+        if (node == null)
+            return "[]";
+        String s = "[";
+        while (node.getNext() != null)
+        {
+            s += node.getValue() + ", ";
+            node = node.getNext();
+        }
+        return s + node.getValue() + "]";
+    }
+
     /**
      * Constructor for the Doubly Linked List. Sets head and end to null, and
      * size to 0.
@@ -71,7 +85,7 @@ public class DoublyLinkedList<E> {
      * @return: the value of the node.
      */
     public E get(int index) {
-        return getNode(index).getValue();
+        return (E) getNode(index).getValue();
     }
 
     /**
@@ -81,7 +95,7 @@ public class DoublyLinkedList<E> {
      */
     public E getFirst() {
         if (this.head != null) {
-            return this.head.getValue();
+            return (E) this.head.getValue();
         }
         return null;
     }
@@ -93,7 +107,7 @@ public class DoublyLinkedList<E> {
      */
     public E getLast() {
         if (this.end != null) {
-            return end.getValue();
+            return (E) end.getValue();
         }
         return null;
     }
@@ -196,7 +210,7 @@ public class DoublyLinkedList<E> {
      * of the passed value, and the size will increase by one.
      * @param value: the value to be added to the end of the list.
      */
-    public addLast(E value) {
+    public void addLast(E value) {
         add(value);
     }
 
@@ -271,7 +285,7 @@ public class DoublyLinkedList<E> {
      *
      * @return: An instance of a DoublyLinkedListIterator to traverse the list
      */
-    public Iterator<E> iterator)() {
+    public Iterator<E> iterator() {
         return new DoublyLinkedListIterator();
     }
 
@@ -331,7 +345,7 @@ public class DoublyLinkedList<E> {
          * @postcondition: the element will be removed from the list and the size will decrease by one.
          */
         public void remove() {
-            if (this.nextNode != null && nextNode.getPrevious() != null) {
+            if (nextNode != null && nextNode.getPrevious() != null) {
                 DoubleNode previous = nextNode.getPrevious().getPrevious();
                 nextNode.setPrevious(previous);
                 if (previous != null) {
