@@ -3,20 +3,20 @@ import java.util.*;
 /**
  * Tester for DoublyLinkedList
  */
-public class DoublyLinkedListTester {
+public class SinglyLinkedListTester {
 
     /**
      * Main method in the Tester to run. Does not test iterator yet.
      */
     public static void main(String[] args)
     {
-        DoublyLinkedList<Integer> test;
+        SinglyLinkedList<Integer> test;
         LinkedList<Integer> base;
 
         for (int i = 0; i < 10; i++) //10 test runs
         {
             System.out.print("\n\nNEW RUN\n\n");
-            test = new DoublyLinkedList<>(); //DoublyLinkedList that will be tested
+            test = new SinglyLinkedList<>(); //DoublyLinkedList that will be tested
             base = new LinkedList<>(); //base list to verify the doublylinkedlist functionality
 
             //add 6 values to each list
@@ -37,16 +37,6 @@ public class DoublyLinkedListTester {
                 throw new RuntimeException("Get function doesn't work.");
             }
 
-            //add a value at the 3rd index
-            int randomInt = random(i);
-            System.out.print("\nAdding " + randomInt + " to list at 3rd index.\n");
-            test.add(2, randomInt);
-            base.add(2, randomInt);
-            if (test.get(2) != randomInt) {
-                throw new RuntimeException("Add at index function doesn't work.");
-            }
-            tester(test, base);
-
             //remove the value at the 4th index
             System.out.print("\nRemoving the 4th value in list, " + base.get(3)+ "\n");
             int testRemoved = test.remove(3);
@@ -55,10 +45,10 @@ public class DoublyLinkedListTester {
                 throw new RuntimeException("Remove function doesn't work.");
             tester(test, base);
         }
-        System.out.println("\nDoublyLinkedList Implementation Passed.");
+        System.out.println("\nSinglyLinkedList Implementation Passed.");
     }
 
-    private static void tester(DoublyLinkedList test, LinkedList<Integer> base)
+    private static void tester(SinglyLinkedList test, LinkedList<Integer> base)
     {
         //check to string function (will check values in order, etc)
         System.out.print("\nTesting to string.\n");

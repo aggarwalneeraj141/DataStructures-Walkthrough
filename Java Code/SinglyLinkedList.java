@@ -2,10 +2,24 @@
  * Implementation of a Singly Linked List in Java.
  * Has a head node, as well as a size variable.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList<E> {
 
     private Node head;
     private int size;
+
+    public String toString()
+    {
+        Node node = head;
+        if (node == null)
+            return "[]";
+        String s = "[";
+        while (node.getNext() != null)
+        {
+            s += node.getValue() + ", ";
+            node = node.getNext();
+        }
+        return s + node.getValue() + "]";
+    }
 
     /**
      * Constructor without parameters, which sets head
@@ -34,15 +48,16 @@ public class SinglyLinkedList {
      *
      * @param value: the data to add to the list.
      */
-    public void add(Node value) {
+    public void add(E value) {
+        Node add = new Node(value);
         if (this.head == null) {
-            this.head = value;
+            this.head = add;
         } else {
             Node temp = this.head;
             while (temp.hasNext()) {
                 temp = temp.getNext();
             }
-            temp.setNext(value);
+            temp.setNext(add);
         }
         this.size += 1;
     }
@@ -78,12 +93,12 @@ public class SinglyLinkedList {
     * @return: the respective value in the list, or null if the position
     * doesn't exist.
     */
-    public Object get(int index) {
+    public E get(int index) {
         Node node = getNode(index);
         if (node == null) {
             return null;
         }
-        return node.getValue();
+        return (E) node.getValue();
     }
 
     /**
@@ -94,8 +109,8 @@ public class SinglyLinkedList {
     * @param newValue: the new value to replace the old value
     * @return: the old value in the position.
     */
-    public Object set(int index, Object newValue) {
-        Object oldValue = get(index);
+    public E set(int index, E newValue) {
+        E oldValue = get(index);
         getNode(index).setValue(newValue);
         return oldValue;
     }
@@ -114,8 +129,8 @@ public class SinglyLinkedList {
      * @param index: the index of the value being removed
      * @return: the old value at that index
      */
-    public Object remove(int index) {
-        Object oldValue = get(index);
+    public E remove(int index) {
+        E oldValue = get(index);
         if (index == 0) {
             this.head = this.head.getNext();
         } else if (index == this.size -1) {
