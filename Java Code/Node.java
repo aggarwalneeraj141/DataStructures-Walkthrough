@@ -1,6 +1,6 @@
 /**
- * Implementation of a double node in Java. Carries
- * a value, and points to two other nodes.
+ * Implementation of a single node in Java. Carries
+ * a value, and points to another node
  */
 
 public class Node {
@@ -9,14 +9,19 @@ public class Node {
     private Node next;
 
     /**
+     * Create an empty node.
+     */
+    public Node(){
+    	
+    }
+    /**
      * Constructor for Node. Takes in a value to be stored,
-     * and sets previous and next pointers to null.
-     *
+     * and sets next to null.
+     * 
      * @param value: the value to be assigned.
      */
     public Node(Object value) {
-        this.value = val;
-        next = null;
+        this.value = value;
     }
 
     /**
@@ -69,6 +74,20 @@ public class Node {
         Node oldNext = this.next;
         this.next = newNext;
         return oldNext;
+    }
+    /**
+     * @return true if the value of this node is the same as
+     * that of the node nd.  Value comparison utilizes the
+     * equals method of the value object.
+     * @param nd represents the node we are comparing to
+     * (if nd is not a node returns false by default).
+     */
+    @Override
+    public boolean equals(Object nd){
+    	if(!(nd instanceof Node)) 
+    		return false;
+    	else 
+    		return value.equals(((Node)nd).getValue());
     }
 
 }
